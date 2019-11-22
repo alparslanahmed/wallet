@@ -2,9 +2,16 @@ import {Alert} from 'react-native';
 
 export default store => next => action => {
 
-    if (action.type === 'LOGIN_ERROR') {
+    if (action.type === 'ALERT_ERROR') {
         Alert.alert(
-            'Login Error!',
+            'Error!',
+            action.payload,
+        );
+    }
+
+    if (action.type === 'ALERT_SUCCESS') {
+        Alert.alert(
+            'Success!',
             action.payload,
         );
     }

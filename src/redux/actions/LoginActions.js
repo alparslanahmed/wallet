@@ -1,6 +1,7 @@
 import axios from 'axios';
 import environment from '../../environment';
 import {AsyncStorage} from 'react-native';
+import {alertError} from './MainActions';
 
 export const submitLogin = (email, password) => {
     return dispatch => {
@@ -17,7 +18,7 @@ export const submitLogin = (email, password) => {
                     dispatch(loginSuccess(res.data));
                 });
             }).catch(err => {
-                dispatch(loginError('Please check your credentials.'));
+                dispatch(alertError('Please check your credentials.'));
             },
         );
     };
@@ -38,9 +39,4 @@ export const loginSuccess = (credentials) => ({
 
 export const logoutSuccess = () => ({
     type: 'LOGOUT_SUCCESS',
-});
-
-export const loginError = (err) => ({
-    type: 'LOGIN_ERROR',
-    payload: err,
 });

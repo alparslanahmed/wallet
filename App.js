@@ -3,6 +3,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import HomeScreen from './src/screens/Home';
 import LoginScreen from './src/screens/Login';
+import RegisterScreen from './src/screens/Register';
 import AuthLoading from './src/screens/AuthLoading';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/es/integration/react';
@@ -17,17 +18,20 @@ const AppNavigator = createStackNavigator({
     },
     {
         initialRouteName: 'Home',
-        transparentCard: true,
+        cardStyle: {backgroundColor: '#1F282D'},
     });
 
 const AuthNavigator = createStackNavigator({
         Login: {
             screen: LoginScreen,
         },
+        Register: {
+            screen: RegisterScreen,
+        },
     },
     {
         initialRouteName: 'Login',
-        transparentCard: true,
+        cardStyle: {backgroundColor: '#1F282D'},
     });
 
 const AppContainer = createAppContainer(createSwitchNavigator(
@@ -39,7 +43,7 @@ const AppContainer = createAppContainer(createSwitchNavigator(
 
     {
         initialRouteName: 'AuthLoading',
-        transparentCard: true,
+        cardStyle: {backgroundColor: '#1F282D'},
     },
 ));
 
@@ -51,9 +55,7 @@ export default class App extends Component {
                     loading={null}
                     persistor={persistor}
                 >
-                    <LinearGradient colors={['#1F282D', '#080809']} start={{x: 1, y: 0}} style={styles.linearGradient}>
-                        <AppContainer/>
-                    </LinearGradient>
+                    <AppContainer/>
                 </PersistGate>
             </Provider>
         );
