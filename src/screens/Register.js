@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, TextInput, Alert, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
-import styles from '../styles/main';
+import styles from '../styles/auth';
 import {submitLogin} from '../redux/actions/LoginActions';
 import {submitRegister} from '../redux/actions/RegisterActions';
 

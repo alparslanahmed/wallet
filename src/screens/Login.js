@@ -3,7 +3,7 @@ import {View, Text, Button, TextInput, StyleSheet, TouchableOpacity} from 'react
 import {connect} from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import {submitLogin} from '../redux/actions/LoginActions';
-import styles from '../styles/main';
+import styles from '../styles/auth';
 
 class LoginScreen extends React.Component {
     static navigationOptions = {

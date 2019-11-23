@@ -8,17 +8,39 @@ import AuthLoading from './src/screens/AuthLoading';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/es/integration/react';
 import {store, persistor} from './src/redux/store/store';
-import LinearGradient from 'react-native-linear-gradient';
-import {Text, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
+import TransactionsScreen from './src/screens/Transactions';
+import CreateTransaction from './src/screens/CreateTransaction';
 
 const AppNavigator = createStackNavigator({
         Home: {
             screen: HomeScreen,
         },
+        Transactions: {
+            screen: TransactionsScreen,
+        },
+        CreateTransaction: {
+            screen: CreateTransaction,
+        },
     },
     {
         initialRouteName: 'Home',
         cardStyle: {backgroundColor: '#1F282D'},
+        headerLayoutPreset: 'center',
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: '#1F282D',
+                textAlign: 'center',
+                shadowOpacity: 0,
+                elevation: 0,
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                textAlign: 'center',
+                fontSize: 16,
+                fontFamily: 'Heebo-Regular',
+            },
+        },
     });
 
 const AuthNavigator = createStackNavigator({
