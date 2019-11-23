@@ -3,60 +3,77 @@ import {View, Text, Button, FlatList} from 'react-native';
 import {connect} from 'react-redux';
 import {logout} from '../redux/actions/LoginActions';
 import styles from '../styles/home';
+import Transaction from '../components/Transaction';
 
 const DATA = [
     {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'First Item',
+        id: 1,
+        title: 'Freelance Work',
+        date: '2019-11-22 20:30:27',
+        amount: 300,
     },
     {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Second Item',
+        id: 2,
+        title: 'Shopping',
+        date: '2019-11-22 20:30:27',
+        amount: -400,
     },
     {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Third Item',
+        id: 3,
+        title: 'Salary',
+        date: '2019-11-22 20:30:27',
+        amount: 12000,
     },
-
     {
-        id: '58694a0f-3da1-asd-bd96-145571e29d72',
-        title: 'Third Item',
+        id: 4,
+        title: 'Rent',
+        date: '2019-11-22 20:30:27',
+        amount: -450,
     },
-
     {
-        id: '58694a0f-3da1-dsa-bd96-145571e29d72',
-        title: 'Third Item',
+        id: 5,
+        title: 'Freelance Work',
+        date: '2019-11-22 20:30:27',
+        amount: 300,
     },
-
     {
-        id: '58694a0f-3da1-aaa-bd96-145571e29d72',
-        title: 'Third Item',
+        id: 6,
+        title: 'Freelance Work',
+        date: '2019-11-22 20:30:27',
+        amount: 300,
     },
-
     {
-        id: '58694a0f-3da1-47vvv1f-bd96-145571e29d72',
-        title: 'Third Item',
+        id: 7,
+        title: 'Freelance Work',
+        date: '2019-11-22 20:30:27',
+        amount: 300,
     },
-
     {
-        id: '58694a0f-3da1-471xxxf-bd96-145571e29d72',
-        title: 'Third Item',
+        id: 8,
+        title: 'Freelance Work',
+        date: '2019-11-22 20:30:27',
+        amount: 300,
     },
-
     {
-        id: '58694a0f-3da1-zzz-bd96-145571e29d72',
-        title: 'Third Item',
+        id: 9,
+        title: 'Freelance Work',
+        date: '2019-11-22 20:30:27',
+        amount: 300,
+    },
+    {
+        id: 10,
+        title: 'Freelance Work',
+        date: '2019-11-22 20:30:27',
+        amount: 300,
+    },
+    {
+        id: 11,
+        title: 'Freelance Work',
+        date: '2019-11-22 20:30:27',
+        amount: 300,
     },
 ];
 
-function Item({title}) {
-    return (
-        <View style={styles.item}>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.title}>{title}</Text>
-        </View>
-    );
-}
 
 class HomeScreen extends React.Component {
     static navigationOptions = {
@@ -97,12 +114,13 @@ class HomeScreen extends React.Component {
                             <Text style={{...styles.title, marginBottom: 20}}>This Month</Text>
                         </View>
                         <View>
-                            <Text style={{...styles.title, ...styles.green}}>Show All</Text>
+                            <Text style={{...styles.title, ...styles.green}}
+                                  onPress={this.props.navigation.navigate.bind(this, 'Transactions')}>Show All</Text>
                         </View>
                     </View>
                     <FlatList
                         data={DATA}
-                        renderItem={({item}) => <Item title={item.title}/>}
+                        renderItem={({item}) => <Transaction title={item.title} date={item.date} amount={item.amount}/>}
                         keyExtractor={item => item.id}
                     />
                 </View>
