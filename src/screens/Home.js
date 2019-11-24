@@ -124,6 +124,7 @@ class HomeScreen extends React.Component {
                         keyExtractor={item => item.id}
                     />
                 </View>
+                <View></View>
             </View>
         );
     }

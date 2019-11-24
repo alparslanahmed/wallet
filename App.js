@@ -11,6 +11,7 @@ import {store, persistor} from './src/redux/store/store';
 import {StyleSheet} from 'react-native';
 import TransactionsScreen from './src/screens/Transactions';
 import CreateTransaction from './src/screens/CreateTransaction';
+import SplashScreen from 'react-native-splash-screen';
 
 const AppNavigator = createStackNavigator({
         Home: {
@@ -70,6 +71,10 @@ const AppContainer = createAppContainer(createSwitchNavigator(
 ));
 
 export default class App extends Component {
+    componentDidMount() {
+        SplashScreen.hide();
+    }
+
     render() {
         return (
             <Provider store={store}>
