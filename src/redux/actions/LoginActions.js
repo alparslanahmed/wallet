@@ -14,6 +14,8 @@ export const submitLogin = (email, password) => {
             client_secret: environment.client_secret,
         })
             .then(res => {
+                axios.defaults.headers.common = {'Authorization': `Bearer ${res.data.access_token}`}
+
                 AsyncStorage.setItem('token', res.data.access_token).then(() => {
                     dispatch(loginSuccess(res.data));
                 });

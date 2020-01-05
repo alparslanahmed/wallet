@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {logout} from '../redux/actions/LoginActions';
 import styles from '../styles/home';
 import Transaction from '../components/Transaction';
+import {Icon} from 'react-native-elements';
 
 const DATA = [
     {
@@ -124,7 +125,15 @@ class HomeScreen extends React.Component {
                         keyExtractor={item => item.id}
                     />
                 </View>
-                <View></View>
+                <View style={styles.createButtonWrapper}>
+                    <Icon
+                        raised
+                        name='plus'
+                        type='font-awesome'
+                        color='#FF2366'
+                        size={30}
+                        onPress={() => this.props.navigation.navigate('CreateTransaction')}/>
+                </View>
             </View>
         );
     }

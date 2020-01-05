@@ -45,4 +45,9 @@ export default StyleSheet.create({
         marginBottom: 10,
         borderRadius: 10,
     },
+    createButtonWrapper: {
+        position: 'absolute',
+        bottom: 20,
+        right: 20,
+    },
 });
